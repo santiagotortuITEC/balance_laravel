@@ -51,7 +51,7 @@ Luego de clonar el repositorio:
 **Categorias**
 - POST a categorias
     - http://localhost:8000/api/categorias
-- POST a una categoria
+- PUT a una categoria
     - http://localhost:8000/api/categorias/{id}
 - GET de todas las categorias
     - http://localhost:8000/api/categorias
