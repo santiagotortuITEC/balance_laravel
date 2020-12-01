@@ -11,8 +11,7 @@ Luego de clonar el repositorio:
 - Modificar el archivo ".env.example" a ".env"
     - Hacer configuraciones necesarias. 
     - Por ejemplo:
-        - Nombre de la base de datos. (DB_DATABASE)
-        - Ruta para consumir API. (API_LOCATION)
+        - Nombre de la base de datos. (DB_DATABASE) 
 - Para instalar dependencias.
     - Correr "composer install".
 - Para crear tablas e insertar datos predeterminados.
@@ -23,7 +22,7 @@ Luego de clonar el repositorio:
 
 ## Utilizar API
 
-#### ENDPOINTS
+### ENDPOINTS
 
 **Ingresos**
 - POST a ingresos
