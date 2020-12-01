@@ -23,9 +23,9 @@ Luego de clonar el repositorio:
 
 ## Utilizar API
 
-ENDPOINTS
+#### ENDPOINTS
 
-<Ingresos>
+**Ingresos**
 - POST a ingresos
     - http://localhost:8000/api/ingresos
 - PUT a un ingreso
@@ -37,7 +37,7 @@ ENDPOINTS
 - DELETE a un ingreso
     - http://localhost:8000/api/ingresos/{id}
 
-<Egresos>
+**Egresos**
 - POST a egresos
     - http://localhost:8000/api/egresos
 - PUT a un egreso
@@ -49,7 +49,7 @@ ENDPOINTS
 - DELETE a un egreso
     - http://localhost:8000/api/egresos/{id}
 
-<Categorias>
+**Categorias**
 - POST a categorias
     - http://localhost:8000/api/categorias
 - POST a una categoria
@@ -61,7 +61,7 @@ ENDPOINTS
 - DELETE a una categoria
     - http://localhost:8000/api/categorias/{id}
 
-<SubCategorias>
+**SubCategorias**
 - POST a sub categorias
     - http://localhost:8000/api/subcategorias
 - PUT de una sub categoria
@@ -73,7 +73,7 @@ ENDPOINTS
 - DELETE a una sub categoria
     - http://localhost:8000/api/subcategorias/{id}
 
-<ItemsEgresos>
+**ItemsEgresos**
 - POST de items de egresos
     - http://localhost:8000/api/itemsegresos
 - PUT de items de egresos
