@@ -28,9 +28,6 @@ Luego de clonar el repositorio:
 - Para correr el proyecto:
     - Web: "php artisan serve" (puerto 8000)
 
-**Así quedaria la base de datos**
-![Database_Model](https://github.com/santiagotortuITEC/balance_laravel/blob/master/public/images/modelo.png)
-
 ## Utilizar API
 
 ### ENDPOINTS
