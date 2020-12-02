@@ -71,17 +71,9 @@ Luego de clonar el repositorio:
 - DELETE a una categoria
     - http://localhost:8000/api/categorias/{id}
 
-**SubCategorias**
-- POST a sub categorias
-    - http://localhost:8000/api/subcategorias
-- PUT de una sub categoria
-    - http://localhost:8000/api/subcategorias/{id}
+**SubCategorias** 
 - GET de todas las sub categorias
-    - http://localhost:8000/api/subcategorias
-- GET de una sub categoria
-    - http://localhost:8000/api/subcategorias/{id}
-- DELETE a una sub categoria
-    - http://localhost:8000/api/subcategorias/{id}
+    - http://localhost:8000/api/subcategorias 
 
 **ItemsEgresos**
 - POST de items de egresos
