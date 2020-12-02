@@ -49,11 +49,11 @@ class BalanceController extends Controller
             Log::critical("El balance del usuario con el email '" . $user->email . "' ha bajado de $0. ");
         
             // email
-            // Mail::send('mail', $data, function($message) use ($to_name, $to_email) {
-            //     $message->to($to_email, $to_name)
-            //             ->subject('Aviso de TortuMath');
-            //     $message->from('technologyblog0@gmail.com','TortuMath');
-            // });
+            Mail::send('mail', $data, function($message) use ($to_name, $to_email) {
+                $message->to($to_email, $to_name)
+                        ->subject('Aviso de TortuMath');
+                $message->from('technologyblog0@gmail.com','TortuMath');
+            });
 
         }
 
