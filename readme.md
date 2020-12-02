@@ -1,8 +1,9 @@
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a> 
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p> 
+ 
+
+<a href="#"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
+<a href="#"><img src="https://img.shields.io/badge/php-^7.1.3-blue"></a>
+<a href="#"><img src="https://img.shields.io/badge/laravel-^5.8-red"></a>
+
 
 ## TortuMath
 
