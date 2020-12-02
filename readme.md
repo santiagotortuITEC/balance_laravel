@@ -1,9 +1,18 @@
- 
+<p align="center">
+<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a> 
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
+</p> 
+
+## TortuMath
+
+
 ## Acerca del proyecto
 Este proyecto de Laravel es util para manejar las finanzas personales.
-Se pueden ingresar los gastos y las entradas de dinero, todo esto separado por categorias. Automaticamente se generara un balance sobre los datos ingresados, y el usuario sera notificado via Email cuando su balance este bajo los $0.
+Se pueden ingresar los gastos y las entradas de dinero, todo esto separado por categorías. Automaticamente se generara un balance sobre los datos ingresados, y el usuario sera notificado via Email cuando su balance este bajo los $0.
+El mismo fue desarrollado en marco de la Evaluacion Final Integradora de la carrera de Desarrollo de Software en el Instituto Tecnológico de Río Cuarto
 
-## Clonar y correr el proyecto
+## Correr el proyecto
 
 Luego de clonar el repositorio:
 
@@ -16,7 +25,6 @@ Luego de clonar el repositorio:
     - Correr "composer install".
 - Para crear tablas e insertar datos predeterminados.
     - Correr "php artisan migrate --seed".
-
 - Para correr el proyecto:
     - Web: "php artisan serve" (puerto 8000)
 
