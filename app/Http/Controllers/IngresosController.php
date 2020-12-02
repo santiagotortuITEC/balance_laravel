@@ -15,6 +15,7 @@ class IngresosController extends Controller
     {  
         $ingreso = Ingresos::with('categorias_ings')->get();          
         new IngresosResource($ingreso);    
+        
         return view('ingresos.index',[ 'ingresos' => $ingreso]);   
     
     }
@@ -66,10 +67,15 @@ class IngresosController extends Controller
         $Mensaje = ["required"=>'El :attribute es requerido'];
         $this->validate($request,$campos,$Mensaje);
 
-        Ingresos::create($request->all());
+        try {
+            Ingresos::create($request->all()); 
+            return back()->with('Mensaje','Ingreso agregado correctamente'); 
         
-        // Retornar vista
-        return back()->with('Mensaje','Ingreso agregado correctamente'); 
+        }catch (\Illuminate\Database\QueryException $e){
+            return redirect('ingresos')->with('MensajeError','Primero debe agregar una categoria para ingresos.');
+
+        }
+
     }
 
     /**

@@ -14,13 +14,18 @@ class CreateIngresosTable extends Migration
     public function up()
     {
         Schema::create('ingresos', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id');
             $table->string('nombre');
             $table->mediumInteger('valor');
             $table->string('detalle');
-            $table->mediumInteger('categorias_ings_id')->default(0); 
+           // $table->mediumInteger('categorias_ings_id')->default(0); 
+            $table->integer('categorias_ings_id')->unsigned()->nullable(false)->onDelete('cascade')->constrained();
 
             $table->timestamps();
+        });
+        Schema::table('ingresos', function($table) {
+            $table->foreign('categorias_ings_id')
+                ->references('id')->on('categorias_ings') ;
         });
     }
 

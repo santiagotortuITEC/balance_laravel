@@ -10,6 +10,11 @@
         {{ Session::get('Mensaje') }}
     </div>
 @endif
+@if(Session::has('MensajeError'))
+    <div class="alert alert-danger row mb-2 d-flex justify-content-center " role="alert">
+        {{ Session::get('MensajeError') }}
+    </div>
+@endif
 
 <div class="row mb-2 d-flex justify-content-center">
     <div class="col-sm-6 ">
@@ -17,6 +22,18 @@
     </div>
 </div>
  
+@if (count($egresos) < 1)
+<div  class="row d-flex justify-content-center ">
+    <div class="col-sm-6 " >
+        <div class="card mb-2 ">
+            <div class="card-body text-center">
+                 No hay egresos cargados
+            </div>
+        </div> 
+    </div>
+</div>
+@endif
+
 @foreach($egresos as $egreso)
 
 <div class="row d-flex justify-content-center">

@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\ItemsEgresos; 
 use App\CategoriasIng; 
 use App\Http\Resources\EgresosResource;
-
+use App\Http\Resources\ItemsEgresosResource;
 
 class EgresosController extends Controller
 {
@@ -69,9 +69,15 @@ class EgresosController extends Controller
         $Mensaje = ["required"=>'El :attribute es requerido'];
         $this->validate($request,$campos,$Mensaje);
             
-        Egresos::create($request->all());
+        try {
+            Egresos::create($request->all());
+            return redirect('egresos')->with('MensajeError','Egreso agregado correctamente');
+        
+        }catch (\Illuminate\Database\QueryException $e){
+            return redirect('egresos')->with('MensajeError','Primero debe agregar una categoria para egresos.');
 
-        return redirect('egresos')->with('Mensaje','Egreso agregado correctamente');
+        }
+
     }
 
     /**
@@ -137,10 +143,35 @@ class EgresosController extends Controller
      */
     public function destroy($id)
     {
-        $egreso =Egresos::findOrFail($id);
-        if ($egreso->delete()) {
-             new EgresosResource($egreso);
+ 
+        try {
+            $egreso =Egresos::findOrFail($id);
+            if ($egreso->delete()) {
+                 new EgresosResource($egreso);
+            }
+            return back()->with('Mensaje','Egreso eliminado correctamente');
+        
+        }catch (\Illuminate\Database\QueryException $e){
+            // Si eliminacion en cascada, traeme a los items para borrarlos tambien
+            $items = ItemsEgresos::with('egresos')->get();
+            // Los recorro
+            foreach ($items as $item){
+                // Si coinciden con el egreso que quiero borrar...
+                if ($item->egresos->id == $id){
+                    // Borro los items de este egreso
+                    if ($item->delete()) {
+                        new ItemsEgresosResource($items);
+                    }
+                }
+            }
+            // Borro el egreso
+            if ($egreso->delete()) {
+                new EgresosResource($egreso);
+            }
+            return back()->with('Mensaje','Egreso eliminado correctamente');
+
+           // return redirect('egresos')->with('Mensaje','Operación ínvalida, categoria en uso.');
+
         }
-        return back()->with('Mensaje','Egreso eliminado correctamente');
     }
 }

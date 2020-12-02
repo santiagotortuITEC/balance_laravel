@@ -1,15 +1,14 @@
- 
 
+
+
+# TortuMath
+ 
 <a href="#"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
 <a href="#"><img src="https://img.shields.io/badge/php-^7.1.3-blue"></a>
 <a href="#"><img src="https://img.shields.io/badge/laravel-^5.8-red"></a>
 
-
-## TortuMath
-
-
 ## Acerca del proyecto
-Este proyecto de Laravel es util para manejar las finanzas personales.
+Este proyecto de Laravel es útil para manejar las finanzas personales.
 Se pueden ingresar los gastos y las entradas de dinero, todo esto separado por categorías. Automaticamente se generara un balance sobre los datos ingresados, y el usuario sera notificado via Email cuando su balance este bajo los $0.
 El mismo fue desarrollado en marco de la Evaluacion Final Integradora de la carrera de Desarrollo de Software en el Instituto Tecnológico de Río Cuarto
 
@@ -28,6 +27,9 @@ Luego de clonar el repositorio:
     - Correr "php artisan migrate --seed".
 - Para correr el proyecto:
     - Web: "php artisan serve" (puerto 8000)
+
+**Así quedaria la base de datos**
+![Database_Model](https://github.com/santiagotortuITEC/balance_laravel/blob/master/public/images/modelo.png)
 
 ## Utilizar API
 

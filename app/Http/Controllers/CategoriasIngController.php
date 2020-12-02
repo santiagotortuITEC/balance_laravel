@@ -6,6 +6,9 @@ use App\CategoriasIng;
 use App\subcategorias; 
 use Illuminate\Http\Request;  
 use App\Http\Resources\CategoriasIngResource;
+use App\Egresos;
+use App\Ingresos;
+
 
 class CategoriasIngController extends Controller
 {
@@ -96,6 +99,19 @@ class CategoriasIngController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $update = true; 
+        $egresos = Egresos::with('categorias_ings')->get(); 
+        foreach ($egresos as $egreso){
+            if ($egreso->categorias_ings->id == $id){
+                $update = false;
+            }
+        }
+        $ingresos = Ingresos::with('categorias_ings')->get(); 
+        foreach ($ingresos as $ingreso){
+            if ($ingreso->categorias_ings->id == $id){
+                $update = false;
+            }
+        }
         //
         $campos = [
             'nombre' => 'required|string|max:100', 
@@ -105,10 +121,14 @@ class CategoriasIngController extends Controller
         $Mensaje = ["required"=>'El :attribute es requerido'];
         $this->validate($request,$campos,$Mensaje);
 
-        $categoria = CategoriasIng::findOrFail($id);
-        $categoria->update($request->all());  
+        if ($update){
+            $categoria = CategoriasIng::findOrFail($id);
+            $categoria->update($request->all());  
+            return redirect('categoriasing')->with('Mensaje','Categoria editada correctamente');
+        }else{
+            return redirect('categoriasing')->with('Mensaje','Categoria NO editada');
+        }
         
-        return redirect('categoriasing')->with('Mensaje','Categoria editada correctamente');
         
     }
 
@@ -121,11 +141,17 @@ class CategoriasIngController extends Controller
     public function destroy($id)
     {
         //
-        $categoria =CategoriasIng::findOrFail($id);
-        if ($categoria->delete()) {
-            new CategoriasIngResource($categoria);
-        }
+        try {
+            $categoria =CategoriasIng::findOrFail($id);
+            if ($categoria->delete()) {
+                new CategoriasIngResource($categoria);
+            }
+             return redirect('categoriasing')->with('Mensaje','Categoria eliminada correctamente');
+        
+        }catch (\Illuminate\Database\QueryException $e){
+            return redirect('categoriasing')->with('MensajeError','Operación ínvalida, categoria en uso.');
 
-         return redirect('categoriasing')->with('Mensaje','Categoria eliminada correctamente');
+        }
+        
     }
 }

@@ -10,7 +10,12 @@
         {{ Session::get('Mensaje') }}
     </div>
 @endif
- 
+@if(Session::has('MensajeError'))
+    <div class="alert alert-danger row mb-2 d-flex justify-content-center " role="alert">
+        {{ Session::get('MensajeError') }}
+    </div>
+@endif
+
     
     <div class="row mb-2 d-flex justify-content-center">
         <div class="col-sm-6 ">

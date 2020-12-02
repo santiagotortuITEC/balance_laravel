@@ -12,6 +12,21 @@
     </div>
 @endif
 
+@if (count($items) < 1)
+<div  class="row d-flex justify-content-center ">
+
+    <div class="col-sm-6 " >
+      <div class="card mb-2 ">
+        <a href="{{ url('/itemsegresos/create') }}" class=" btn btn-primary btn-block ">Agregar item</a>
+
+      
+        <div class="card-body text-center">
+                No hay items cargados
+            </div>
+        </div> 
+    </div>
+</div>
+@else
 <div class="row mb-2 d-flex justify-content-center">
     <input class="form-control col-md-3 light-table-filter" data-table="order-table" type="text" placeholder="Buscar..." >
     <div class="col-sm-6 ">
@@ -20,6 +35,7 @@
     
 </div>
 <table class="table bg-white order-table">
+
     <thead class="thead-dark">
       <tr>
         <th>Nombre</th>
@@ -29,6 +45,7 @@
       </tr>
     </thead>
     <tbody>
+
         @foreach ($items as $item)
             <tr>
                 <td>{{$item->nombreitem}}</td>
@@ -49,10 +66,11 @@
     </tbody>
   </table>
   
- 
-
-
+  
+  
+  
 </div>
+@endif
 
 @endsection
 
